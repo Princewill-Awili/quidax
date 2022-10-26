@@ -1,0 +1,146 @@
+.booktile{
+    display: flex;
+    width: 30%;
+    height: 180px;
+    margin: 0px 40px 50px 0px;
+    cursor: pointer;
+}
+
+.left{
+    flex: 2.5;
+}
+
+.bookImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+.right{
+    flex: 5;
+    padding-left: 10px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.auth, .genre{
+    font-size: 14px;
+}
+
+.genre{
+    margin-bottom: 10px;
+}
+
+.midSection{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10px;
+    gap: 10px;
+    border-right: 1px solid #EEEEEE;
+}
+
+.followers, .likes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.followers>svg, .likes>svg{
+    font-size: 16px;
+}
+
+.followers>span, .likes>span{
+    font-size: 12px;
+}
+
+.ratings{
+    padding-left: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.ratings>span{
+    font-size: 12px;
+}
+
+.priceAndStock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.price, .stock{
+    height: 100%;
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+    
+    width: 50%;
+}
+
+.price{
+    flex: 0.5;
+    justify-content: flex-start;
+}
+
+.stock{
+    flex: 1.5;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.addToCart{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.addToCart>svg{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+@media screen and (max-width:600px) {
+  .booktile{
+    width: 80%;
+    
+  }  
+}
+
+@media screen and (max-width:400px) {
+    .booktile{
+        width: 100%;
+      }  
+}

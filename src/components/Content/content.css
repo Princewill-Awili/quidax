@@ -3,8 +3,63 @@
     height: calc(100%-100px);
     position: absolute;
     top: 100px;
+    left: 0px;
     z-index: 777;
     display: flex;
+    
+}
+
+/********************************Filter************************************************/
+
+.filter{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 777;
+}
+
+/**************************************** Content Wrapper *************************************************/
+
+.contentWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionTitle{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/**************************************** Featured ******************************************************/
+
+.featured{
+    display: flex;
+    width: 100%;
+    height: 450px;
+    padding: 20px;
+}
+
+
+
+/**************************************** All Books ******************************************************/
+
+.allBooks{
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+   padding: 20px;
+
 }
 
 
@@ -12,8 +67,7 @@
 
 
 
-
-*********************************** Media Queries (1200px, 900px, 600px, 400px) *******************************/
+/*********************************** Media Queries (1200px, 900px, 600px, 400px) *******************************/
 
 @media screen and (max-width: 1200px) {
     
