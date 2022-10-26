@@ -188,6 +188,46 @@
     transition: 0.5s ease-out;  
 }
 
+.mobileSearchBarWrapper{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobileSearchBar{
+    height: 40px;
+    width: 80%;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: var(--black-icon);
+    border: 1px solid  var(--grey-text);
+}
+
+.mobileSearchBar::placeholder{
+    color: var(--grey-text);
+}
+
+.mobileSearchBar:focus{
+    outline: none;
+}
+
+
+.msiWrapper{
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--grey-text);
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--grey-bg);
+    cursor: pointer;
+}
+
 
 
 
@@ -207,6 +247,7 @@
     .searchBar{
         width: 70%;
     }
+
 }
 
 @media screen and (max-width: 900px) {
@@ -217,7 +258,9 @@
    .searchBar{
     width: 90%;
    }
+
 }
+
 
 @media screen and (max-width: 670px) {
     .tLeft{
@@ -233,7 +276,15 @@
 
     .mobileSearchIcon{
         display: flex;
+
     }
+    
+}
+
+@media screen and (min-width: 670px) {
+    .mobileSearch{
+        display: none;
+    } 
 }
 
 @media screen and (max-width: 500px) {

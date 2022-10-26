@@ -1,6 +1,7 @@
 import './topbar.css'
 
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { states } from '../../utils/context'
 
 import {TbBooks} from 'react-icons/tb'
 import {FiSearch as SearchIcon } from 'react-icons/fi'
@@ -12,6 +13,7 @@ import {IoClose as Close} from 'react-icons/io5'
 const Topbar = () => {
 
   const [mobileSearch, setMobileSearch] = useState(false);
+  const {cartOpen, setCartOpen} = useContext(states);
  
 
 
@@ -49,7 +51,7 @@ const Topbar = () => {
           <TbBooks className='logoIcon'/>
         </div>
 
-        <div className="cartWrapper">
+        <div className="cartWrapper" onClick={()=> setCartOpen(!cartOpen)}>
           <span className="bubble">3</span>
           <CartIcon className='cartIcon'/>
         </div>
@@ -58,6 +60,13 @@ const Topbar = () => {
 
       <div className="mobileSearch" style={{bottom: mobileSearch ? "0px":"100px"}} >
         <BiArrowBack  onClick={()=> setMobileSearch(false)}/>
+        <div className="mobileSearchBarWrapper">
+          <input type="text" className="mobileSearchBar" placeholder='Books, genres, author, etc.'/>
+          <div className="msiWrapper">
+            <SearchIcon/>
+          </div>
+
+        </div>
       </div>
     </div>
   )

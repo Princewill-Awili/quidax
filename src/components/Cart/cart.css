@@ -1,34 +1,83 @@
 .cart{
-    display: none;
+    display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     height: 100vh;
     position: fixed;
-    right: 0px;
+    left: 100%;
     top: 0px;
     z-index: 999;
-    border: 1px solid black;
-    background-color: red;
-}
-
-
-
-
-*********************************** Media Queries (1200px, 900px, 600px, 400px) *******************************/
-
-@media screen and (max-width: 1200px) {
+    background-color: white;
+    transition: 0.5s ease-out;
     
 }
 
+.cartTopbar{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    box-shadow: var(--shadow);
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5%;
+}
+
+.backWrapper{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    cursor: pointer;
+}
+
+.backTxt{
+    font-weight: 600;
+}
+
+
+
+
+/*********************************** Media Queries (1200px, 900px, 600px, 400px) *******************************/
+
+@media screen and (max-width: 1500px) {
+    .cart{
+        left:70%;
+        width:30%;
+      
+    }  
+}
+
+@media screen and (max-width: 1200px) {
+    .cart{
+        left:65%;
+        width:35%;
+      
+    }  
+}
+
 @media screen and (max-width: 900px) {
+    .cart{
+        left:50%;
+        width:50%;
+      
+    }
     
 }
 
 @media screen and (max-width: 600px) {
-    
+    .cart{
+        left: 0% ;
+        min-width: 100%;
+       
+    }
 }
 
 @media screen and (max-width: 400px) {
+    .cart{
+        left: 0%;
+        min-width: 100%;
+    }
     
 }

@@ -7,10 +7,10 @@ export const states = createContext();
 
 export const StateContextProvider = ({children}) => {
 
-    
+    const [cartOpen, setCartOpen] = useState(false);
 
     return (
-        <states.Provider value={{books}}>
+        <states.Provider value={{books, cartOpen, setCartOpen}}>
             {children}
         </states.Provider>
     )
