@@ -1,8 +1,16 @@
 
+
+import Topbar from "./components/Topbar/Topbar";
+import Cart from "./components/Cart/Cart";
+import Content from "./components/Content/Content";
+
+
 function App() {
   return (
     <div className="App">
-      <p>Hello World!</p>
+      <Topbar/>
+      <Cart/>
+      <Content/>
     </div>
   );
 }

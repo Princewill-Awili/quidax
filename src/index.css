@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu';
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+.App{
+    display: flex;
+    position: relative;
+}
+
+:root{
+    --grey-bg: #F9F9FB;
+    --grey-text: #C0C0C0;
+    --black-icon: #0B0B0B;
+    --green-bubble: #65C100;
+    --shadow: 0px 0px 55px -21px rgba(178,178,191,0.62);
+
+}

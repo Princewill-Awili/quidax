@@ -1,0 +1,280 @@
+.topbar{
+    display: flex;
+    background-color: white;
+    align-items: center;
+    position: fixed;
+    z-index: 888;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    box-shadow: var(--shadow);
+}
+
+.tLeft, .tCenter, .tRight{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+/******************************** tLeft **************************************/
+
+.tLeft{
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-left: 50px;
+    width: 20%;
+}
+
+.logoWrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+
+}
+
+.logoBg{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.logoIcon{
+    font-size: 2.2rem;
+    stroke-width: 1px;
+
+}
+
+.logoTxtWrapper{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.logoTxt, .logoCaption{
+    width: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: flex-start;
+}
+
+.logoTxt{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.logoCaption{
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--grey-text);
+}
+
+/************************************* tCenter *******************************************************/
+
+.tCenter{
+    width: 60%;
+}
+
+.searchWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar{
+    width: 55%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: var(--black-icon);
+    border: 1px solid  var(--grey-text);
+}
+
+.searchBar::placeholder{
+    color: var(--grey-text);
+}
+
+.searchBar:focus{
+    outline: none;
+}
+
+.searchIconWrapper{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--grey-bg);
+    border: 1px solid var(--grey-text);
+    border-left: none;
+    cursor: pointer;
+}
+
+
+/************************************************ tRight ******************************************************/
+
+.tRight{
+    width: 20%;
+    justify-content: space-evenly;
+}
+
+.mobileSearchIcon{
+    font-size: 1.5rem;
+    font-weight:bold;
+    display: none;
+    cursor: pointer;
+}
+
+.logoRight{
+    background: var(--grey-bg);
+    color: var(--black-icon);
+}
+
+.cartWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cartIcon{
+    font-size: 1.8rem;
+}
+
+.bubble{
+    width: 20px;
+    height: 20px;
+    background: var(--green-bubble);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color:white;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+/*************************************** mobileSearch *******************************************************/
+
+.mobileSearch{
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0px;
+    background-color: white;
+    display: flex;
+    transition: 0.5s ease-out;  
+}
+
+
+
+
+
+
+
+/*********************************** Media Queries (1200px, 900px,.670px, 600px, 500px, 400px) *******************************/
+
+@media screen and (max-width: 1200px) {
+    .tLeft{
+        width: 30%;
+    }
+    .tCenter{
+        width: 50%;
+    }
+
+    .searchBar{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+   .tLeft{
+    padding-left: 10px;
+   } 
+
+   .searchBar{
+    width: 90%;
+   }
+}
+
+@media screen and (max-width: 670px) {
+    .tLeft{
+        width: 40%;
+    }
+    .tCenter{
+        display: none;
+    }
+
+    .tRight{
+        width: 60%;
+    }
+
+    .mobileSearchIcon{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .tLeft{
+        width: 50%;
+    }
+
+    .logoBg{
+        width: 40px;
+        height: 40px;
+    }
+    .logoIcon{
+        font-size: 1.8rem;
+    }
+    .logoTxt{
+        font-size: 1rem;
+
+    }
+
+    .tRight{
+        justify-content: flex-end;
+        padding-right: 20px;
+        gap: 20px;
+    }
+
+    .logoCaption{
+        display: none;
+    }
+
+    .logoRight{
+        background: transparent;
+    }
+}
+
+
+
+@media screen and (max-width: 400px) {
+    
+}
+
+
+
+
