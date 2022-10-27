@@ -2,12 +2,12 @@
     display: flex;
     width: 30%;
     height: 180px;
-    margin: 0px 40px 50px 0px;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
 .left{
-    flex: 2.5;
+    width: 50%;
 }
 
 .bookImg{
@@ -21,7 +21,7 @@
 
 
 .right{
-    flex: 5;
+    width: 50%;
     padding-left: 10px;
     padding-top: 5px;
     display: flex;
@@ -86,6 +86,14 @@
     font-size: 12px;
 }
 
+.filled{
+    color: goldenrod;
+}
+
+.unfilled{
+    color: grey;
+}
+
 .priceAndStock{
     display: flex;
     align-items: center;
@@ -132,15 +140,47 @@
 }
 
 
-@media screen and (max-width:600px) {
-  .booktile{
-    width: 80%;
-    
-  }  
-}
+
+
+
+
+@media screen and (max-width:1200px) {
+    .booktile{
+      width: 30%;
+      margin: 0px;
+      margin-bottom: 30px;
+      
+    }  
+  }
+  @media screen and (max-width:900px) {
+    .booktile{
+      width: 50%;
+    }  
+  }
+
+  @media screen and (max-width:670px) {
+    .booktile{
+      width: 100%;
+      height: 250px;
+    }  
+  }
+
 
 @media screen and (max-width:400px) {
-    .booktile{
+    left{
+        flex: 2;
+        width: 60%;
+    }
+    right{
+        flex: 1;
+       
+        width: 40%;
+    }
+
+    .bookImg{
         width: 100%;
+    }
+    .booktile{
+       height: 220px;
       }  
 }

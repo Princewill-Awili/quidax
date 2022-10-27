@@ -23,19 +23,18 @@ const BookTile = ({id,img,title,author,releasedYear,genre, followers,likes,ratin
   const { cart,setCart, books } = useContext(states);
 
   const addToCart = (e) => {
-    const sBook = books.find(item => item.id === e.target.id);
-    //console.log(sBook);
-    //console.log(e.target);
-    setCart(prev => [...prev, sBook]);
-    console.log(cart);
+    const sBook = books.find(book => book.id === e.currentTarget.id)
+    console.log(sBook);
+    setCart(prev => [...prev,sBook]);
+    localStorage.setItem('cart',JSON.stringify(cart))
   }
 
   const openBook = (e) => {
     console.log(e.currentTarget.id)
-    const selectedBook = books[e.currentTarget.id];
+    const selectedBook = books.find(book => book.id === e.currentTarget.id)
     console.log(selectedBook);
     localStorage.setItem('selectedBook', JSON.stringify(selectedBook));
-    navigate(`/book`);
+    navigate(`/book/${e.currentTarget.id}`);
   }
 
 
@@ -81,8 +80,8 @@ const BookTile = ({id,img,title,author,releasedYear,genre, followers,likes,ratin
             </p>
 
             <div className="addToCart" id={id} onClick={(e)=> addToCart(e)}>
-              <CartIcon id={id} onClick={(e)=> addToCart(e)}/>
-              <span className="add" id={id} onClick={(e)=> addToCart(e)}>Add to Cart</span>
+              <CartIcon id={id} />
+              <span className="add" id={id} >Add to Cart</span>
             </div>
         </div>
     </div>

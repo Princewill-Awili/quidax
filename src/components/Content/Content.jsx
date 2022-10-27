@@ -1,10 +1,15 @@
 import  './content.css'
 import {Routes, Route} from 'react-router-dom'
-
 import { useContext } from 'react'
 import {states} from '../../utils/context'
-
 import BookTile from '../BookTile/BookTile'
+import BookPage from '../BookPage/BookPage'
+
+
+
+
+
+
 
 const Content = () => {
 
@@ -49,6 +54,7 @@ const Content = () => {
                   </div>
                 }
         />
+        <Route path='/book/:id' element={<BookPage/>}/>
 
 
 

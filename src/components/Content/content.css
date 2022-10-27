@@ -57,7 +57,7 @@
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   justify-content: flex-start;
+   justify-content: space-evenly;
    padding: 20px;
 
 }
@@ -70,17 +70,30 @@
 /*********************************** Media Queries (1200px, 900px, 600px, 400px) *******************************/
 
 @media screen and (max-width: 1200px) {
+    .allBooks{
+        width: 100%;
+    }
     
 }
 
 @media screen and (max-width: 900px) {
-    
+    .allBooks{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 600px) {
+    .allBooks{
+        width: 100%;
+    }
     
 }
 
 @media screen and (max-width: 400px) {
+    .allBooks{
+        width: 100%;
+        padding: 0 auto;
+        justify-content: center;
+    }
     
 }
