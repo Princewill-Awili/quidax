@@ -2,6 +2,7 @@ import './topbar.css'
 
 import { useState, useContext, useEffect } from 'react'
 import { states } from '../../utils/context'
+import { useNavigate } from 'react-router-dom'
 
 import {TbBooks} from 'react-icons/tb'
 import {FiSearch as SearchIcon } from 'react-icons/fi'
@@ -13,10 +14,7 @@ const Topbar = () => {
   const [mobileSearch, setMobileSearch] = useState(false);
   const {cartOpen, setCartOpen,cart} = useContext(states);
 
-
-
- 
- 
+  const navigate = useNavigate();
 
 
   return (
@@ -24,12 +22,12 @@ const Topbar = () => {
 
       <div className="tLeft">
 
-        <div className="logoWrapper">
-          <div className="logoBg">
+        <div className="logoWrapper" onClick={() => navigate('/')}>
+          <div className="logoBg" style={{cursor:"pointer"}}>
             <TbBooks className='logoIcon'/>
           </div>
           <div className="logoTxtWrapper">
-            <span className="logoTxt">Quidax Books</span>
+            <span className="logoTxt" style={{cursor:"pointer"}}>Quidax Books</span>
             <span className="logoCaption">A flimsy book company</span>
           </div> 
         </div>

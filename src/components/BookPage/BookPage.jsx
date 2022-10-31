@@ -7,9 +7,17 @@ import {AiOutlineHeart as Likes ,AiFillStar as Rating} from 'react-icons/ai'
 import {MdOutlineShoppingCart as CartIcon} from 'react-icons/md'
 
 import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import { states } from '../../utils/context'
 
 const BookPage = () => {
     const [book] = useState(JSON.parse(localStorage.getItem('selectedBook')));
+
+    const {setCart} = useContext(states)
+
+    const addBookToCart = () => {
+        setCart(prev => [...prev,book])
+    }
 
     const ratingFunc = (ratingsNum) => {
         const numUnfilled = Math.floor(5 - ratingsNum);
@@ -138,7 +146,7 @@ const BookPage = () => {
                 <p className="desc">{book.description}</p>
 
 
-                <div className="addToCartMobile">
+                <div className="addToCartMobile" onClick={addBookToCart}>
                     <CartIcon/>
 
                     <div className="atcmMid">

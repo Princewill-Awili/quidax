@@ -3,21 +3,85 @@
     height: 150px;
     display: flex;
     justify-content: flex-start;
-    border: 1px solid black;
+    padding: 20px 10px;
+    border-bottom: 1px solid var(--grey-text);
 }
 
 .cImgBox{
-    max-width: 30%;
+    width: 30%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    margin-right: 5px;
 
 }
 
 .cImage{
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+}
+
+.cInfo{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cTitle{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.cAuthor{
+    font-size: 0.9rem;
+    
+}
+
+.removeBtn{
+    cursor: pointer;
+}
+
+.cPriceSect{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+}
+
+.cPriceSect>span{
+    text-align:right;
+}
+
+.addedPrice{
+    margin-top: 10px;
+    font-weight: 600;
+}
+.qty{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: space-evenly;
+    
+}
+
+.qty>div{
+    width: 33%;
+    height: 70%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: var(--grey-bg);
+    border: 1px solid var(--grey-text);
+}
+
+.add,.minus{
+    cursor: pointer;
 }
