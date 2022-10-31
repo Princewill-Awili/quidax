@@ -6,6 +6,7 @@ import {MdOutlineShoppingCart as CartIcon} from 'react-icons/md'
 import { states } from '../../utils/context'
 import { useContext } from 'react'
 import {useNavigate} from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 
@@ -24,9 +25,7 @@ const BookTile = ({id,img,title,author,releasedYear,genre, followers,likes,ratin
 
   const addToCart = (e) => {
     const sBook = books.find(book => book.id === e.currentTarget.id)
-    console.log(sBook);
-    setCart(prev => [...prev,sBook]);
-    localStorage.setItem('cart',JSON.stringify(cart))
+    setCart(prev => [...prev,sBook]); 
   }
 
   const openBook = (e) => {
@@ -36,6 +35,10 @@ const BookTile = ({id,img,title,author,releasedYear,genre, followers,likes,ratin
     localStorage.setItem('selectedBook', JSON.stringify(selectedBook));
     navigate(`/book/${e.currentTarget.id}`);
   }
+
+  useEffect(()=>{
+    localStorage.setItem('cart',JSON.stringify(cart));
+  },[cart]);
 
 
   return (

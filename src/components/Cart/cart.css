@@ -3,7 +3,7 @@
     justify-content: flex-start;
     flex-direction: column;
     width: 40%;
-    height: 100vh;
+    min-height: 100vh;
     position: fixed;
     left: 100%;
     top: 0px;
@@ -34,6 +34,13 @@
 
 .backTxt{
     font-weight: 600;
+}
+
+.cartList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
 }
 
 

@@ -1,19 +1,21 @@
 import './topbar.css'
 
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { states } from '../../utils/context'
 
 import {TbBooks} from 'react-icons/tb'
 import {FiSearch as SearchIcon } from 'react-icons/fi'
 import {MdOutlineShoppingCart as CartIcon} from 'react-icons/md'
 import {BiArrowBack} from 'react-icons/bi'
-import {IoClose as Close} from 'react-icons/io5'
-
 
 const Topbar = () => {
 
   const [mobileSearch, setMobileSearch] = useState(false);
-  const {cartOpen, setCartOpen} = useContext(states);
+  const {cartOpen, setCartOpen,cart} = useContext(states);
+
+
+
+ 
  
 
 
@@ -52,7 +54,7 @@ const Topbar = () => {
         </div>
 
         <div className="cartWrapper" onClick={()=> setCartOpen(!cartOpen)}>
-          <span className="bubble">3</span>
+          <span className="bubble">{cart.length}</span>
           <CartIcon className='cartIcon'/>
         </div>
 

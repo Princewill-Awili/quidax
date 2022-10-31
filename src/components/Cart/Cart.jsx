@@ -1,11 +1,21 @@
 import './cart.css'
-import { useContext } from 'react'
+import {useState, useContext } from 'react'
 import { states } from '../../utils/context'
 
 import {BiArrowBack} from 'react-icons/bi'
+import CartItem from '../CartItem/CartItem'
+import { useEffect } from 'react'
 
 const Cart = () => {
-  const{cartOpen, setCartOpen} = useContext(states);
+  const{cartOpen, setCartOpen, cart} = useContext(states);
+
+  const [localCart, setLocalCart] = useState( cart || []);
+
+  console.log("LOCAL CART:",localCart);
+
+
+  
+
 
   return (
     <div className='cart' style={{left: cartOpen ? "" : "100%"}} >
@@ -14,6 +24,14 @@ const Cart = () => {
           <BiArrowBack className='backArrow'/>
           <span className="backTxt">Back</span>
         </div>
+      </div>
+
+      <div className="cartList">
+          {
+                cart.map((item,index)=>(
+                  <CartItem key={index} {...item}/>
+                ))
+          }
       </div>
       
 
