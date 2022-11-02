@@ -20,18 +20,18 @@ const Content = () => {
 
   const { cartOpen , books} = useContext(states);
 
-  const [count,setCount] = useState(1);
+  const [count,setCount] = useState(0);
 
   const slideRef = useRef()
 
   const slideLeft=()=>{
-      slideRef.current.style.left = `${count * 250}px`;
+      slideRef.current.style.left = `${(count+1) * 250}px`;
       setCount(count - 1);
       console.log("RIGHT:",slideRef.current.style.right);
   }
 
   const slideRight=()=>{
-    slideRef.current.style.right = `${count * 250}px`;
+    slideRef.current.style.right = `${(count+1) * 250}px`;
     setCount(count + 1);
     console.log("LEFT:",slideRef.current.style.left);
 }
@@ -50,7 +50,7 @@ const Content = () => {
                       
                       <div className="slider">
                         {
-                          count > 1 && (
+                          count >= 1 && (
                             <div className=" dir leftDir" >
                               <LeftSlideArrow className='dirArrow' onClick={slideLeft}/>
                             </div>
@@ -76,6 +76,14 @@ const Content = () => {
                             </div>
                           )
                         }
+
+                        <div className="dots">
+                          {
+                            [...Array(10)].map((x,index)=>(
+                              <div className="dot" id={index+1} style={{backgroundColor: count === index ? "var(--green-bubble)": ""}}></div>
+                            ))
+                          }
+                        </div>
                         
                       </div>
                       
