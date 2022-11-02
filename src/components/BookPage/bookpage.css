@@ -58,6 +58,7 @@
     padding: 0px 20px 0 20px;
     gap: 50px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .addToCartBtn>svg{

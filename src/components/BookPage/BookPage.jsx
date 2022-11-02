@@ -87,7 +87,7 @@ const BookPage = () => {
 
                 <p className="bookPrice">${book.price}</p>
 
-                <div className="addToCartBtn">
+                <div className="addToCartBtn" onClick={addBookToCart}>
                     <CartIcon/>
                     <span>Add to Cart</span>
                 </div>

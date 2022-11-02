@@ -4,6 +4,11 @@ import { useContext } from 'react'
 import {states} from '../../utils/context'
 import BookTile from '../BookTile/BookTile'
 import BookPage from '../BookPage/BookPage'
+import BookThumbnail from '../BookThumbnail/BookThumbnail'
+
+import {IoMdArrowDropleft as LeftSlideArrow, IoMdArrowDropright as RightSlideArrow} from 'react-icons/io'
+import { useState } from 'react'
+import { useRef } from 'react'
 
 
 
@@ -15,6 +20,23 @@ const Content = () => {
 
   const { cartOpen , books} = useContext(states);
 
+  const [count,setCount] = useState(1);
+
+  const slideRef = useRef()
+
+  const slideLeft=()=>{
+      slideRef.current.style.left = `${count * 250}px`;
+      setCount(count - 1);
+      console.log("RIGHT:",slideRef.current.style.right);
+  }
+
+  const slideRight=()=>{
+    slideRef.current.style.right = `${count * 250}px`;
+    setCount(count + 1);
+    console.log("LEFT:",slideRef.current.style.left);
+}
+
+
   return (
     <div className='content'>
       { cartOpen && (<div className="filter">filter</div>)}
@@ -25,6 +47,37 @@ const Content = () => {
                   <div className='contentWrapper'>
                     <div className="featured">
                       <h3 className="sectionTitle"> Featured</h3>
+                      
+                      <div className="slider">
+                        {
+                          count > 1 && (
+                            <div className=" dir leftDir" >
+                              <LeftSlideArrow className='dirArrow' onClick={slideLeft}/>
+                            </div>
+                          )
+                        }
+                        
+                        <div className="sliderRack" ref={slideRef}>
+                          {
+                            books.map((book,index)=>(
+                              <BookThumbnail key={index} {...book}/>
+                            ))
+                          }
+                          {
+                            books.map((book,index)=>(
+                              <BookThumbnail key={index} {...book}/>
+                            ))
+                          }
+                        </div>
+                        {
+                          count < 10 && (
+                            <div className="dir rightDir">
+                              <RightSlideArrow className='dirArrow' onClick={slideRight}/>
+                            </div>
+                          )
+                        }
+                        
+                      </div>
                       
                     </div>
                     <div className="allBooks">
