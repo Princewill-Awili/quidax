@@ -1,11 +1,12 @@
 import  './content.css'
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, Navigate, useNavigate} from 'react-router-dom'
 import { useContext } from 'react'
 import {states} from '../../utils/context'
 import BookTile from '../BookTile/BookTile'
 import BookPage from '../BookPage/BookPage'
 import BookThumbnail from '../BookThumbnail/BookThumbnail'
 
+import {BiArrowBack as BackArrow} from 'react-icons/bi'
 import {IoMdArrowDropleft as LeftSlideArrow, IoMdArrowDropright as RightSlideArrow} from 'react-icons/io'
 import { useState } from 'react'
 import { useRef } from 'react'
@@ -16,11 +17,12 @@ import { useRef } from 'react'
 
 
 
+
 const Content = () => {
 
-  
+  const navigate = useNavigate();
 
-  const { cartOpen , books, searchMode, setSearchMode,mobileSearch, setMobileSearch} = useContext(states);
+  const { cartOpen , books, searchMode, setSearchMode,setMobileSearch, foundBooks} = useContext(states);
 
   const [count,setCount] = useState(0);
 
@@ -41,16 +43,15 @@ const Content = () => {
 
   return (
     <div className='content'>
-      { cartOpen && (<div className="filter">filter</div>)}
+      { cartOpen && (<div className="filter"></div>)}
       <Routes>
         <Route 
                 path='/' exact 
                 element={
                   <div className='contentWrapper'>
                     {
-                     searchMode || mobileSearch  
-                    }
-                    <div className="featured">
+                     searchMode === false && (
+                      <div className="featured">
                       <h3 className="sectionTitle"> Featured</h3>
                       
                       <div className="slider">
@@ -93,11 +94,17 @@ const Content = () => {
                       </div>
                       
                     </div>
+                     ) 
+                    }
+                   
                     <div className="allBooks">
-                      <h3 className="sectionTitle"> All Books</h3>
+                      <h3 className="sectionTitle">{searchMode === false  ? "All Books":`Found Books(${foundBooks.length})`}</h3>
                       {
-                        books.map((book)=>(
-                          <BookTile key={book.id} {...book}/>
+                        searchMode=== false ? (
+                          <>
+                             {
+                                books.map((book)=>(
+                                <BookTile key={book.id} {...book}/>
                         ))
                       }
                       {
@@ -114,13 +121,38 @@ const Content = () => {
                         books.map((book)=>(
                           <BookTile key={book.id} {...book}/>
                         ))
+                      }
+                          </>
+                        ):
+                        (
+                          <>
+                          {
+                            foundBooks.map((book)=>(
+                              <BookTile key={book.id} {...book}/>
+                            ))
+                          }
+                          </> 
+                        )
                       }
                       
                     </div>
+                      {searchMode && (
+                      <div 
+                        className='return' 
+                        onClick={()=>{
+                          navigate('/');
+                          setSearchMode(false);
+                          setMobileSearch(false);
+                        }}
+                    >
+                      <span>
+                        <BackArrow />
+                      </span>Home
+                    </div>)}
                   </div>
                 }
         />
-        <Route path='/book/:id' element={<BookPage/>}/>
+        <Route path='/book/:id' element={searchMode ? (<Navigate to={"/"}/>) : (<BookPage/>)}/>
 
 
 

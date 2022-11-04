@@ -1,6 +1,6 @@
 import './topbar.css'
 
-import { useState, useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { states } from '../../utils/context'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,7 +11,19 @@ import {BiArrowBack} from 'react-icons/bi'
 
 const Topbar = () => {
 
-  const {cartOpen, setCartOpen,cart, mobileSearch, setMobileSearch} = useContext(states);
+  const {
+    books,
+    setFoundBooks,
+    cartOpen, setCartOpen,
+    cart,
+    mobileSearch, setMobileSearch, 
+    setSearchMode,
+    query, setQuery} = useContext(states);
+
+  const handleQuery = () => {
+    const foundItems = books.filter(book => book.title[0].toLowerCase() === query[0].toLowerCase());
+    setFoundBooks(foundItems);
+  }
 
   const navigate = useNavigate();
 
@@ -35,8 +47,11 @@ const Topbar = () => {
 
       <div className="tCenter">
         <div className="searchWrapper">
-          <input type="text" className="searchBar" placeholder='Search books, genres, authors, etc'/>
-          <div className="searchIconWrapper">
+          <input type="text" className="searchBar" placeholder='Search books, genres, authors, etc' value={query} onChange={(e)=>setQuery(e.target.value)} onSubmit={handleQuery}/>
+          <div className="searchIconWrapper" onClick={()=>{
+            handleQuery();
+            setSearchMode(true);
+          }}>
             <SearchIcon className='searchIcon'/>
           </div>
         </div>
@@ -44,7 +59,10 @@ const Topbar = () => {
 
       <div className="tRight">
 
-        <SearchIcon className='mobileSearchIcon' onClick={()=> setMobileSearch(true)}/>
+        <SearchIcon className='mobileSearchIcon' onClick={()=> {
+          setMobileSearch(true);
+          setSearchMode(true);
+        }}/>
         
         <div className="logoBg logoRight">
           <TbBooks className='logoIcon'/>
@@ -58,10 +76,19 @@ const Topbar = () => {
       </div>
 
       <div className="mobileSearch" style={{bottom: mobileSearch ? "0px":"100px"}} >
-        <BiArrowBack  onClick={()=> setMobileSearch(false)}/>
+        <BiArrowBack  onClick={()=>{
+            setMobileSearch(false);
+            setSearchMode(false);
+        }}/>
         <div className="mobileSearchBarWrapper">
-          <input type="text" className="mobileSearchBar" placeholder='Books, genres, author, etc.'/>
-          <div className="msiWrapper">
+          <input 
+            type="text" 
+            className="mobileSearchBar" 
+            placeholder='Books, genres, author, etc.' 
+            value={query}  
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <div className="msiWrapper" onClick={handleQuery}>
             <SearchIcon/>
           </div>
 

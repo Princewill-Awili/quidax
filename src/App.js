@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 
 import {states} from './utils/context'
 import { useEffect, useContext } from "react";
+import { queryAllByAltText } from "@testing-library/react";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
   useEffect(()=>{
     localStorage.setItem('cart',JSON.stringify(cart))
   },[cart]);
+
 
   return (
     <Router>

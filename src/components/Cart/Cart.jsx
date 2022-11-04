@@ -10,14 +10,6 @@ import { useEffect } from 'react'
 const Cart = () => {
   const{cartOpen, setCartOpen, cart, subTotal} = useContext(states);
 
-  const [localCart, setLocalCart] = useState( cart || []);
-
-  console.log("LOCAL CART:",localCart);
-
-
-  
-
-
   return (
     <div className='cart' style={{left: cartOpen ? "" : "100%"}} >
       <div className="cartTopbar">

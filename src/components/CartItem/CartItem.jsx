@@ -2,9 +2,9 @@ import { useState, useContext, useEffect } from 'react'
 import { states } from '../../utils/context'
 import './cartItem.css'
 
-const CartItem = ({img,title,author,price}) => {
+const CartItem = ({id,img,title,author,price}) => {
 
-  const {subTotal, setSubTotal} = useContext(states)
+  const {subTotal, setSubTotal, cart, setCart} = useContext(states)
   const [qty,setQty] = useState(1);
 
   const add = () =>{
@@ -27,6 +27,13 @@ const CartItem = ({img,title,author,price}) => {
     
   }
 
+  const removeItem = (e) =>{
+    setCart(cart.filter(item => item.id !== e.currentTarget.id))
+  }
+
+
+
+
   useEffect(()=>{
     setSubTotal(subTotal + price);
   },[])
@@ -37,9 +44,11 @@ const CartItem = ({img,title,author,price}) => {
             <img src={img} alt="cImg" className='cImage'/>
         </div>
         <div className="cInfo">
-            <span className="cTitle">{title}</span>
-            <span className="cAuthor">{author}</span>
-            <spam className="removeBtn">Remove</spam>
+            <span className="topCInfo">
+              <span className="cTitle">{title}</span>
+              <span className="cAuthor">{author}</span>
+            </span>
+            <spam className="removeBtn" id={id} onClick={(e)=> removeItem(e)}>Remove</spam>
         </div>
 
         <div className="cPriceSect">
