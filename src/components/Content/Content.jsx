@@ -18,7 +18,9 @@ import { useRef } from 'react'
 
 const Content = () => {
 
-  const { cartOpen , books} = useContext(states);
+  
+
+  const { cartOpen , books, searchMode, setSearchMode,mobileSearch, setMobileSearch} = useContext(states);
 
   const [count,setCount] = useState(0);
 
@@ -45,6 +47,9 @@ const Content = () => {
                 path='/' exact 
                 element={
                   <div className='contentWrapper'>
+                    {
+                     searchMode || mobileSearch  
+                    }
                     <div className="featured">
                       <h3 className="sectionTitle"> Featured</h3>
                       

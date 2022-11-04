@@ -21,7 +21,8 @@ const BookTile = ({id,img,title,author,releasedYear,genre, followers,likes,ratin
   const [filled,unfilled] = ratingFunc(ratings);
 
   const navigate = useNavigate();
-  const { cart,setCart, books } = useContext(states);
+  const cart = JSON.parse(localStorage.getItem('cart'));
+  const {setCart, books } = useContext(states);
 
   const addToCart = (e) => {
     const sBook = books.find(book => book.id === e.currentTarget.id)
@@ -36,9 +37,7 @@ const BookTile = ({id,img,title,author,releasedYear,genre, followers,likes,ratin
     navigate(`/book/${e.currentTarget.id}`);
   }
 
-  useEffect(()=>{
-    localStorage.setItem('cart',JSON.stringify(cart));
-  },[cart]);
+ 
 
 
   return (

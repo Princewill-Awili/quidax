@@ -11,8 +11,7 @@ import {BiArrowBack} from 'react-icons/bi'
 
 const Topbar = () => {
 
-  const [mobileSearch, setMobileSearch] = useState(false);
-  const {cartOpen, setCartOpen,cart} = useContext(states);
+  const {cartOpen, setCartOpen,cart, mobileSearch, setMobileSearch} = useContext(states);
 
   const navigate = useNavigate();
 
